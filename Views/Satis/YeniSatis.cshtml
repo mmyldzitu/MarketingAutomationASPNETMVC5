@@ -1,0 +1,39 @@
+﻿@model MVC5ONLINETICARIOTAMASYON.Models.Sınıflar.SatısHareketleri
+@{
+    ViewBag.Title = "YeniSatis";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Satış</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.Label("ÜRÜN ADI")
+    @Html.DropDownListFor(x => x.UrunID, (List<SelectListItem>)ViewBag.dg1, new { @class = "form-control" })
+    <br />
+    @Html.Label("PERSONEL")
+    @Html.DropDownListFor(x => x.PersonelID, (List<SelectListItem>)ViewBag.dg3, new { @class = "form-control" })
+    <br />
+    @Html.Label("MÜŞTERİ")
+    @Html.DropDownListFor(x => x.CariID, (List<SelectListItem>)ViewBag.dg2, new { @class = "form-control" })
+    <a href="/Cariler/CariEkle">Yeni Müşteri</a>
+    <br />
+    <br />
+    @Html.Label("FİYAT")
+    @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+    <br />
+    @Html.Label("ADET")
+    @Html.TextBoxFor(x => x.Adet, new { @class = "form-control" })
+    <br />
+    @Html.Label("TOPLAM")
+    @Html.TextBoxFor(x => x.Toplam, new { @class = "form-control" })
+    <br />
+
+    <br />
+    <button class="btn btn-primary">SATIŞ</button>
+
+
+
+
+</form>
+

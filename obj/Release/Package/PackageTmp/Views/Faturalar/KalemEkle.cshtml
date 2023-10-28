@@ -1,0 +1,36 @@
+﻿@model MVC5ONLINETICARIOTAMASYON.Models.Sınıflar.FaturaKlaem
+@{
+    ViewBag.Title = "KalemEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Kalem Ekleme Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.Label("AÇIKLAMA")
+    @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+
+    <br />
+    @Html.Label("MİKTAR")
+    @Html.TextBoxFor(x => x.Miktar, new { @class = "form-control" })
+    <br />
+    @Html.Label("BRİM FİYAT")
+    @Html.TextBoxFor(x => x.BrimFiyat, new { @class = "form-control" })
+    <br />
+    @Html.Label("TUTAR")
+    @Html.TextBoxFor(x => x.Tutar, new { @class = "form-control" })
+    <br />
+    @Html.Label("FAURA ID")
+    @Html.TextBoxFor(x => x.FaturaID, new { @class = "form-control" })
+
+
+
+    <br />
+    <button class="btn btn-primary">KAYDET</button>
+
+
+
+
+</form>
+

@@ -1,0 +1,35 @@
+﻿@using MVC5ONLINETICARIOTAMASYON.Models.Sınıflar
+@model List<Departman>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+<table class="table table-bordered" style="margin-top:20px">
+
+    <tr>
+
+        <th>Departman Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detay</th>
+        
+    </tr>
+    @foreach (var k in Model)
+    {
+<tr>
+
+    <td>
+        @k.DepartmanAdı
+    </td>
+    <td><a href="/Departman/DepartmanSil/@k.DepartmanID" class="btn btn-danger">Sil</a></td>
+    <td><a href="/Departman/DepartmanGetir/@k.DepartmanID" class="btn btn-info">Güncelle</a></td>
+    <td><a href="/Departman/DepartmanDetay/@k.DepartmanID" class="btn btn-info" style="background-color:burlywood">Detay</a></td>
+
+</tr>
+    }
+</table>
+
+<a href="/Departman/DepartmanEkle" class="btn btn-primary">Departman Ekle</a>

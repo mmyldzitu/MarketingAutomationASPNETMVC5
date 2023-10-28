@@ -1,0 +1,25 @@
+﻿@model MVC5ONLINETICARIOTAMASYON.Models.Sınıflar.Cariler
+@{
+    ViewBag.Title = "CariEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Müşteri Ekleme Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.Label("Müşteri  Adı")
+    @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })
+    @Html.Label("Müşteri  Soyadı")
+    @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })
+    @Html.Label("Müşteri  Şehri")
+    @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })
+    @Html.Label("Müşteri  Mail Adresi")
+    @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+    @Html.Label("Şifresi")
+    @*@Html.TextBoxFor(x => x.CariSifre, new { @class = "form-control" })*@
+    <input type="password" class="form-control"  name="CariSifre" />
+
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>

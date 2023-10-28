@@ -1,0 +1,47 @@
+﻿@model MVC5ONLINETICARIOTAMASYON.Models.Sınıflar.Faturalar
+
+@{
+    ViewBag.Title = "FaturaFetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+
+<h2>Fatura Güncelleme Sayfası</h2>
+
+<br />
+
+@using (Html.BeginForm("FaturaGuncelle", "Faturalar", FormMethod.Post))
+{@Html.HiddenFor(x => x.FaturaID)
+@Html.Label("SERİ NO")
+@Html.TextBoxFor(x => x.FaturaSeriNO, new { @class = "form-control" })
+<br />
+@Html.Label("SIRA NO")
+@Html.TextBoxFor(x => x.FaturaSıraNO, new { @class = "form-control" })
+<br />
+@Html.Label("TARİH")
+@Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+<br />
+@Html.Label("VERGİ DAİRESİ")
+@Html.TextBoxFor(x => x.VergiDairesi, new { @class = "form-control" })
+<br />
+@Html.Label("SAAT")
+@Html.TextBoxFor(x => x.saat, new { @class = "form-control" })
+<br />
+@Html.Label("TESLİM EDEN")
+@Html.TextBoxFor(x => x.TeslimEden, new { @class = "form-control" })
+<br />
+@Html.Label("TESLİM ALAN")
+@Html.TextBoxFor(x => x.TeslimAlan, new { @class = "form-control" })
+
+<br />
+<button class="btn btn-warning" style="background-color:gold">GÜNCELLE</button>
+
+
+
+
+
+}
+
+
+

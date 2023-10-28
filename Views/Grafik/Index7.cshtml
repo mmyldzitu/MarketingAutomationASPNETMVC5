@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index8";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<br />
+<h2>Lütfen Bir Grafik Türü Seçin</h2>
+
+
+@Html.DropDownList("d1", (List<SelectListItem>
+)ViewBag.d1, new { @class = "form-control", onchange = "document.location.href = '/Grafik/Indexex4/'  + this.options[this.selectedIndex].value;" })
+
+
+
+
+

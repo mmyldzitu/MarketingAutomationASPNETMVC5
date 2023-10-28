@@ -1,0 +1,42 @@
+﻿@model MVC5ONLINETICARIOTAMASYON.Models.Sınıflar.Cariler
+@{
+    ViewBag.Title = "CariGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Müşteri Bilgileri Güncelleme</h2>
+<br />
+@using (Html.BeginForm("CariGuncelle", "Cariler", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.CariID)
+    @Html.Label("MÜŞTERİ ADI")
+    @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CariAd, "", new { @style = "color:red" })
+    <br />
+    
+    
+    @Html.Label("MÜŞTERİ SOYADI")
+    @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CariSoyad, "", new { @style = "color:red" })
+    <br />
+    
+    
+
+    @Html.Label("MÜŞTERİ ŞEHRİ")
+    @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })
+    <br />
+   
+   
+
+    @Html.Label("MÜŞTERİ MAİL ADRESİ")
+    @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CariMail, "", new { @style = "color:red" })
+    <br />
+    
+    
+
+</div>
+<br />
+<button class="btn btn-warning " style="background-color:gold">GÜNCELLE</button>
+}

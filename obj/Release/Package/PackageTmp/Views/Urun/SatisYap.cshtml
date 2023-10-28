@@ -1,0 +1,56 @@
+﻿@model MVC5ONLINETICARIOTAMASYON.Models.Sınıflar.SatısHareketleri
+@{
+    ViewBag.Title = "SatisYap";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Satış</h2>
+
+<br />
+<form class="form-group" method="post">
+    @Html.Label("ÜRÜN ID")
+    <input type="text" name="UrunID" value="@ViewBag.dg1" class="form-control" readonly />
+    <br />
+    @Html.Label("PERSONEL")
+    @Html.DropDownListFor(x => x.PersonelID, (List<SelectListItem>)ViewBag.dg, new { @class = "form-control" })
+    <br />
+    @Html.Label("ADET")
+    <input type="number" class="form-control" max=@ViewBag.dg3 min="1" placeholder=" Max: @ViewBag.dg3" id="txt1" onchange="sum()" name="Adet" />
+    <br />
+    @Html.Label("MÜŞTERİ ID")
+    @Html.TextBoxFor(x => x.CariID, new { @class = "form-control" })
+    <a href="/Cariler/CariEkle">Yeni Müşteri</a>
+    <br />
+    <br />
+    @Html.Label("FİYAT")
+    <input type="text" name="Fiyat" value="@ViewBag.dg2" class="form-control" id="txt2" onchange="sum()" />
+    <br />
+    @Html.Label("TOPLAM")
+    <input type="number" name="Toplam" value="0" class="form-control" id="txt3" readonly />
+
+    <br />
+
+    <br />
+
+
+
+    <br />
+    <button class="btn btn-primary">SATIŞ YAP</button>
+
+
+
+
+</form>
+<br />
+<script>
+    function sum(){
+        var sayi1 = document.getElementById('txt1').value;
+        var sayi2 = document.getElementById('txt2').value;
+        var sonuc = parseFloat(sayi1) * parseFloat(sayi2);
+        if(!isNaN(sonuc)){
+
+        document.getElementById('txt3').value = sonuc;
+
+    }
+    }
+</script>

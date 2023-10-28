@@ -1,0 +1,29 @@
+﻿@using MVC5ONLINETICARIOTAMASYON.Models.Sınıflar
+@model List<KargoTakip>
+@{
+    ViewBag.Title = "KargoDetay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Kargoya Ait Detaylar</h2>
+
+<table class="table table-striped">
+    <tr>
+
+        <th>Açıklama</th>
+
+        <th>Tarih</th>
+    </tr>
+    
+    @foreach (var x in Model)
+    {
+        <tr>
+
+            <td>@x.Aciklama</td>
+            <td>@x.Tarih</td>
+
+
+
+        </tr>
+    }
+</table>

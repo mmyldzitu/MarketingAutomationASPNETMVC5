@@ -1,0 +1,49 @@
+﻿@using MVC5ONLINETICARIOTAMASYON.Models.Sınıflar
+@model List<SatısHareketleri>
+@{
+    ViewBag.Title = "CariDetay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<br />
+
+<h2>Müşteri Satıl Alma Geçmişi</h2>
+<br />
+<ol class="breadcrumb mb-4">
+
+    <li class="breadcrumb-item active"> @ViewBag.cm</li>
+</ol>
+<table class="table table-condensed">
+    <tr>
+        <th>Adet</th>
+        <th>Fiyat</th>
+        <th>Toplam</th>
+        <th>Personel</th>
+
+        <th>Ürün</th>
+
+        <th>Tarih</th>
+        <th>Yazdır</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Adet</td>
+            <td>@x.Fiyat</td>
+            <td>@x.Toplam</td>
+            <td>@x.Personel.PersonelAd  @x.Personel.PersonelSoyad</td>
+            <td>@x.Urun.UrunAd</td>
+            <td>@x.Tarih</td>
+            <td><a href="/Cariler/CariYazdir3/@x.HareketID" class="btn btn-default" style="background-color:burlywood">Yazdır</a></td>
+        </tr>
+    }
+
+
+
+
+
+
+</table>
+
+<a href="/Cariler/CariYazdir2/@ViewBag.d1" class="btn btn-secondary">Tümünü Yazdır</a>

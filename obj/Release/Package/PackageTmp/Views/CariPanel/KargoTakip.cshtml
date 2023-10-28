@@ -1,0 +1,58 @@
+﻿@using MVC5ONLINETICARIOTAMASYON.Models.Sınıflar;
+@model List<KargoDetay>
+@{
+    ViewBag.Title = "KargoTakip";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+
+<h2>Kargo Takip Sayfası</h2>
+<br />
+@using (Html.BeginForm("KargoTakip", "CariPanel", FormMethod.Get))
+{
+    <p>
+        Takip NO:@Html.TextBox("s")
+        <input type="submit" value="Ara" />
+    </p>
+
+
+}
+<table class="table table-bordered">
+    <tr>
+
+        <th>Personel</th>
+        <th>Alıcı</th>
+        <th>Tarih</th>
+        <th>Takip NO:</th>
+        <th>QR KOD</th>
+        <th>Detaylar</th>
+
+    </tr>
+    @foreach (var u in Model)
+    {
+        <tr>
+
+            <td>@u.Personel.PersonelAd @u.Personel.PersonelSoyad</td>
+            <td>@u.Cariler.CariAd @u.Cariler.CariSoyad</td>
+            <td>@u.Tarih</td>
+            <td>@u.TakipKodu</td>
+
+            <td><a href="/QR/Index/@u.TakipKodu" class="btn btn-danger" style="background-color:#0094ff">QR</a></td>
+            <td><a href="/Kargo/KargoDetay/@u.TakipKodu" class="btn btn-danger">Detaylar</a></td>
+
+
+        </tr>
+
+
+
+
+
+
+    }
+
+</table>
+
+
+<br />
+<a href="/Urun/UrunYazdir" class="btn btn-secondary">Tümünü Yazdır</a>
+
+

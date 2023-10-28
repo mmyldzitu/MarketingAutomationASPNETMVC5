@@ -1,0 +1,56 @@
+﻿@model MVC5ONLINETICARIOTAMASYON.Models.Sınıflar.Personel
+@{
+    ViewBag.Title = "PersonelGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Personel Bilgileri Güncelleme</h2>
+<br />
+@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.PersonelID)
+    @Html.Label("PERSONEL ADI")
+    @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PersonelAd, "", new { @style = "color:red" })
+
+    <br />
+
+
+    @Html.Label("PERSONEL SOYADI")
+    @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PersonelSoyad, "", new { @style = "color:red" })
+
+    <br />
+
+
+
+    @Html.Label("GÖRSEL")
+    <input type="file" name="PersonelGorsel" />
+    <br />
+    <br />
+    @Html.Label("HAKKINDA :)")
+    @Html.TextBoxFor(x => x.hakkinda, new { @class = "form-control" })
+    <br />
+    
+    @Html.Label("ADRESİ")
+    @Html.TextBoxFor(x => x.adres, new { @class = "form-control" })
+    <br />
+    @Html.Label("TELEFON NO")
+    @Html.TextBoxFor(x => x.telefon, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("DEPARTMANI")
+    @Html.DropDownListFor(x => x.DepartmanID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+
+
+    <br />
+
+
+
+</div>
+    <br />
+    <button class="btn btn-warning " style="background-color:gold">GÜNCELLE</button>
+}
+

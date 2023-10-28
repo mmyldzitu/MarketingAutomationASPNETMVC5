@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MVC5ONLINETICARIOTAMASYON.Models.Sınıflar.Faturalar>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>Fatura ID</th>
+        <th>Seri-Sıra No</th>
+
+        <th>Tarih</th>
+        <th>Vergi Dairesi</th>
+        <th>Saat</th>
+
+        <th>Teslim Eden</th>
+        <th>Teslim Alan</th>
+        <th>Toplam Tutar</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+        
+
+
+    </tr>
+
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.FaturaID</td>
+            <td>@k.FaturaSeriNO @k.FaturaSıraNO</td>
+
+            <td>@k.Tarih</td>
+            <td>@k.VergiDairesi</td>
+            <td>@k.saat</td>
+
+            <td>@k.TeslimEden</td>
+            <td>@k.TeslimAlan</td>
+            <td>@k.ToplamTutar</td>
+            <td><a href="/Faturalar/FaturaGetir/@k.FaturaID" class="btn btn-info">Güncelle</a></td>
+            <td><a href="/Faturalar/FaturaDetay/@k.FaturaID" class="btn btn-info" style="background-color:burlywood">Detaylar</a></td>
+
+            
+           
+
+
+
+        </tr>
+        
+
+
+            }
+
+
+    </table>
+<a href="/Faturalar/FaturaEkle" class="btn btn-primary"> Yeni Fatura </a>
+<br />
+<br />
+<a href="#" class="btn btn-primary"> Tümünü Yazdır </a>
+
+<br />
+
+
+

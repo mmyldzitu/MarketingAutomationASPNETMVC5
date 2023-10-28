@@ -1,0 +1,43 @@
+﻿@using MVC5ONLINETICARIOTAMASYON.Models.Sınıflar
+@model List<SatısHareketleri>
+@{
+    ViewBag.Title = "SatisDetay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Satış Hareketine İlişkin Detaylar</h2>
+<br />
+
+    <table class="table table-condensed">
+        <tr>
+            <th>Adet</th>
+            <th>Fiyat</th>
+            <th>Personel</th>
+            <th>Toplam</th>
+            <th>Müşteri</th>
+
+            <th>Ürün</th>
+
+            <th>Tarih</th>
+            <th>Yazdır</th>
+
+        </tr>
+        @foreach (var x in Model)
+        {
+    <tr>
+        <td>@x.Adet</td>
+        <td>@x.Fiyat</td>
+        <td>@x.Personel.PersonelAd @x.Personel.PersonelSoyad </td>
+        <td>@x.Toplam</td>
+        <td>@x.Cariler.CariAd @x.Cariler.CariSoyad</td>
+        <td>@x.Urun.UrunAd</td>
+        <td>@x.Tarih</td>
+       <td> <a href="/Satis/SatisYazdir/@x.HareketID" class="btn btn-default" style="background-color:burlywood">Yazdır</a></td>
+
+    </tr>
+
+
+
+        }
+    </table>
+    

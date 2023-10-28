@@ -1,0 +1,55 @@
+﻿@model MVC5ONLINETICARIOTAMASYON.Models.Sınıflar.SatısHareketleri
+@{
+    ViewBag.Title = "SatisGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+
+<h2>Satış Güncelleme Sayfası</h2>
+
+<br />
+@using (Html.BeginForm("SatisGuncelle", "Satis", FormMethod.Post))
+{@Html.HiddenFor(x => x.HareketID)
+@Html.Label("ÜRÜN ADI")
+@Html.DropDownListFor(x => x.UrunID, (List<SelectListItem>)ViewBag.dg1, new { @class = "form-control" })
+<br />
+@Html.Label("PERSONEL")
+@Html.DropDownListFor(x => x.PersonelID, (List<SelectListItem>)ViewBag.dg3, new { @class = "form-control" })
+<br />
+@Html.Label("MÜŞTERİ")
+@Html.DropDownListFor(x => x.CariID, (List<SelectListItem>)ViewBag.dg2, new { @class = "form-control" })
+<br />
+@Html.Label("FİYAT")
+<input type="text" name="Fiyat" value="@ViewBag.dt1" class="form-control" id="txt2" onchange="sum()" />
+<br />
+@Html.Label("ADET")
+<input type="number" class="form-control" value="@ViewBag.dt" max=@ViewBag.dt2 min="1" placeholder=" Max: @ViewBag.dt2" id="txt1" onchange="sum()" name="Adet" />
+<br />
+@Html.Label("TOPLAM")
+<input type="number" name="Toplam" value="@ViewBag.dt3" class="form-control" id="txt3" readonly />
+<br />
+@Html.Label("TARİH")
+@Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+<br />
+
+
+<br />
+<button class="btn btn-primary">GÜNCELLE</button>
+
+
+
+}
+<script>
+    function sum(){
+        var sayi1 = document.getElementById('txt1').value;
+        var sayi2 = document.getElementById('txt2').value;
+        var sonuc = parseFloat(sayi1) * parseFloat(sayi2);
+        if(!isNaN(sonuc)){
+
+        document.getElementById('txt3').value = sonuc;
+
+    }
+    }
+</script>
+

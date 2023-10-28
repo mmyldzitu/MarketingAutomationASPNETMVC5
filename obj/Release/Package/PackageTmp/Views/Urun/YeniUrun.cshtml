@@ -1,0 +1,44 @@
+﻿@model MVC5ONLINETICARIOTAMASYON.Models.Sınıflar.Urun
+@{
+    ViewBag.Title = "YeniUrun";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Yeni Ürün Ekleme Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.Label("ÜRÜN ADI")
+    @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control" })
+    <br />
+    @Html.Label("ÜRÜN MARKASI")
+    @Html.TextBoxFor(x => x.Marka, new { @class = "form-control" })
+    <br />
+    @Html.Label("STOK SAYISI")
+    @Html.TextBoxFor(x => x.Stok, new { @class = "form-control" })
+    <br />
+    @Html.Label("ALIŞ FİYATI")
+    @Html.TextBoxFor(x => x.AlisFiyat, new { @class = "form-control" })
+    <br />
+    @Html.Label("SATIŞ FİYATI")
+    @Html.TextBoxFor(x => x.SatisFiyat, new { @class = "form-control" })
+    <br />
+    @Html.Label("GÖRSEL")
+    @Html.TextBoxFor(x => x.UrunGorsel, new { @class = "form-control" })
+    <br />
+    @Html.Label("KATEGORİ")
+
+    @*@Html.TextBoxFor(x => x.KategoriID, new { @class = "form-control" })*@
+    @Html.DropDownListFor(x => x.KategoriID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
+    @*@Html.Label("DURUM")
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })*@
+    <br />
+    <button class="btn btn-primary">KAYDET</button>
+
+
+
+
+</form>
+
+
+

@@ -1,0 +1,35 @@
+﻿@model MVC5ONLINETICARIOTAMASYON.Models.Sınıflar.KargoDetay
+@{
+    ViewBag.Title = "YeniKargo";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Yeni Kargo</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.Label("Takip Kodu")
+    <input type="text" value="@ViewBag.takipkodu" class="form-control" readonly name="TakipKodu" />
+    
+
+    @Html.Label("Personel")
+
+    @Html.DropDownListFor(x => x.PersonelID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+
+    @Html.Label("Alıcı")
+    @Html.DropDownListFor(x => x.CariID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+
+
+
+    @Html.Label("Tarih")
+    <input class="form-control" type="date" name="Tarih" />
+    @Html.Label("Açıklama")
+    @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control" })
+
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+
+
+
+
+
+</form>

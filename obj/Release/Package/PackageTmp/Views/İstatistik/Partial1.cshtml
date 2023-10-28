@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MVC5ONLINETICARIOTAMASYON.Models.Sınıflar.GroupSinif2>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Departman Personel Sayıları</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Departman</th>
+                    <th>Progress Bar</th>
+                    <th style="width: 40px">Sayı</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @{ int sirano = 0; }
+                @{ double toplamsayi = 0;}
+
+                @foreach (var y in Model)
+                {
+                    toplamsayi = toplamsayi + y.sayi;
+
+                }
+
+                @foreach (var x in Model)
+
+                {
+
+                    <tr>
+
+                        <td>@{sirano++;}@sirano</td>
+
+                        <td>@x.Departman</td>
+
+                        <td>
+
+                            <div class="progress progress-xs">
+                                @{decimal k = Convert.ToInt32(x.sayi / toplamsayi * 100);}
+
+                                <div class="progress-bar progress-bar-danger" style="width: @k%">@x.sayi</div>
+
+                            </div>
+
+                        </td>
+
+                        <td><span class="badge bg-danger">% @{decimal t = Convert.ToInt32(x.sayi / toplamsayi * 100);} @t.ToString()</span></td>
+
+                    </tr>
+                }
+
+                
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

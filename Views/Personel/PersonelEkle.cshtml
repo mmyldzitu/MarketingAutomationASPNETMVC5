@@ -1,0 +1,38 @@
+﻿@model MVC5ONLINETICARIOTAMASYON.Models.Sınıflar.Personel
+
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Personel Ekleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("PersonelEkle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<form class="form-group" method="post">
+    @Html.Label("PERSONEL ADI")
+    @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PersonelAd, "", new { @style = "color:red" })
+    <br />
+    @Html.Label("PERSONEL SOYADI")
+    @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PersonelSoyad, "", new { @style = "color:red" })
+    <br />
+    @Html.Label("GÖRSELİ")
+    @*@Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })*@
+    <input type="file" name="Görsel" />
+    <br />
+    <br />
+    @Html.Label("DEPARTMANI")
+
+    @Html.DropDownListFor(x => x.DepartmanID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+
+    <br />
+    <button class="btn btn-primary">KAYDET</button>
+
+
+
+
+</form>
+}
